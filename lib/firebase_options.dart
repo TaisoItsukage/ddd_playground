@@ -36,9 +36,10 @@ class DefaultFirebaseOptions {
           'DefaultFirebaseOptions have not been configured for linux - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
-      default:
+      case TargetPlatform.fuchsia:
         throw UnsupportedError(
-          'DefaultFirebaseOptions are not supported for this platform.',
+          'DefaultFirebaseOptions have not been configured for linux - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
         );
     }
   }
@@ -66,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1003290424432',
     projectId: 'ddd-playground-ec',
     storageBucket: 'ddd-playground-ec.appspot.com',
-    iosClientId: '1003290424432-r7rvc2rrhsvr3m3b94qk54tdcesbtuph.apps.googleusercontent.com',
+    iosClientId:
+        '1003290424432-r7rvc2rrhsvr3m3b94qk54tdcesbtuph.apps.googleusercontent.com',
     iosBundleId: 'com.example.dddPlayground',
   );
 
@@ -76,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1003290424432',
     projectId: 'ddd-playground-ec',
     storageBucket: 'ddd-playground-ec.appspot.com',
-    iosClientId: '1003290424432-r7rvc2rrhsvr3m3b94qk54tdcesbtuph.apps.googleusercontent.com',
+    iosClientId:
+        '1003290424432-r7rvc2rrhsvr3m3b94qk54tdcesbtuph.apps.googleusercontent.com',
     iosBundleId: 'com.example.dddPlayground',
   );
 }
