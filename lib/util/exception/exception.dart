@@ -20,10 +20,6 @@ class GenericException implements Exception {
         return '${code.name}\nmust not be empty.';
       case LengthException:
         return '${code.name} must be $info letters or shorter.';
-      case RemovalException:
-        return code == ExceptionCode.category
-            ? 'Cannot be removed;\nthis category contains notes.'
-            : 'Cannot be removed';
       default:
         return 'Unknown error occurred.';
     }
