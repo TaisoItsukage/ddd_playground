@@ -5,7 +5,7 @@ import 'package:ddd_playground/util/providers/auth_instance_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../presentation/login_page.dart';
+import '../../presentation/login/login_page.dart';
 
 final authenticatorProvider = Provider((ref) => Authenticator(ref: ref));
 

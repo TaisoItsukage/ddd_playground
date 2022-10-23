@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'public_customer_data_id.dart';
+part of 'user_id.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,28 +15,25 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PublicCustomerDataId {
+mixin _$UserId {
   String get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PublicCustomerDataIdCopyWith<PublicCustomerDataId> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UserIdCopyWith<UserId> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PublicCustomerDataIdCopyWith<$Res> {
-  factory $PublicCustomerDataIdCopyWith(PublicCustomerDataId value,
-          $Res Function(PublicCustomerDataId) then) =
-      _$PublicCustomerDataIdCopyWithImpl<$Res, PublicCustomerDataId>;
+abstract class $UserIdCopyWith<$Res> {
+  factory $UserIdCopyWith(UserId value, $Res Function(UserId) then) =
+      _$UserIdCopyWithImpl<$Res, UserId>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class _$PublicCustomerDataIdCopyWithImpl<$Res,
-        $Val extends PublicCustomerDataId>
-    implements $PublicCustomerDataIdCopyWith<$Res> {
-  _$PublicCustomerDataIdCopyWithImpl(this._value, this._then);
+class _$UserIdCopyWithImpl<$Res, $Val extends UserId>
+    implements $UserIdCopyWith<$Res> {
+  _$UserIdCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,22 +55,19 @@ class _$PublicCustomerDataIdCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PublicCustomerDataIdCopyWith<$Res>
-    implements $PublicCustomerDataIdCopyWith<$Res> {
-  factory _$$_PublicCustomerDataIdCopyWith(_$_PublicCustomerDataId value,
-          $Res Function(_$_PublicCustomerDataId) then) =
-      __$$_PublicCustomerDataIdCopyWithImpl<$Res>;
+abstract class _$$_UserIdCopyWith<$Res> implements $UserIdCopyWith<$Res> {
+  factory _$$_UserIdCopyWith(_$_UserId value, $Res Function(_$_UserId) then) =
+      __$$_UserIdCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$_PublicCustomerDataIdCopyWithImpl<$Res>
-    extends _$PublicCustomerDataIdCopyWithImpl<$Res, _$_PublicCustomerDataId>
-    implements _$$_PublicCustomerDataIdCopyWith<$Res> {
-  __$$_PublicCustomerDataIdCopyWithImpl(_$_PublicCustomerDataId _value,
-      $Res Function(_$_PublicCustomerDataId) _then)
+class __$$_UserIdCopyWithImpl<$Res>
+    extends _$UserIdCopyWithImpl<$Res, _$_UserId>
+    implements _$$_UserIdCopyWith<$Res> {
+  __$$_UserIdCopyWithImpl(_$_UserId _value, $Res Function(_$_UserId) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -81,7 +75,7 @@ class __$$_PublicCustomerDataIdCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$_PublicCustomerDataId(
+    return _then(_$_UserId(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -92,22 +86,22 @@ class __$$_PublicCustomerDataIdCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PublicCustomerDataId implements _PublicCustomerDataId {
-  const _$_PublicCustomerDataId({required this.id});
+class _$_UserId implements _UserId {
+  _$_UserId({required this.id}) : assert(id.isNotEmpty);
 
   @override
   final String id;
 
   @override
   String toString() {
-    return 'PublicCustomerDataId(id: $id)';
+    return 'UserId(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PublicCustomerDataId &&
+            other is _$_UserId &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -117,19 +111,17 @@ class _$_PublicCustomerDataId implements _PublicCustomerDataId {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PublicCustomerDataIdCopyWith<_$_PublicCustomerDataId> get copyWith =>
-      __$$_PublicCustomerDataIdCopyWithImpl<_$_PublicCustomerDataId>(
-          this, _$identity);
+  _$$_UserIdCopyWith<_$_UserId> get copyWith =>
+      __$$_UserIdCopyWithImpl<_$_UserId>(this, _$identity);
 }
 
-abstract class _PublicCustomerDataId implements PublicCustomerDataId {
-  const factory _PublicCustomerDataId({required final String id}) =
-      _$_PublicCustomerDataId;
+abstract class _UserId implements UserId {
+  factory _UserId({required final String id}) = _$_UserId;
 
   @override
   String get id;
   @override
   @JsonKey(ignore: true)
-  _$$_PublicCustomerDataIdCopyWith<_$_PublicCustomerDataId> get copyWith =>
+  _$$_UserIdCopyWith<_$_UserId> get copyWith =>
       throw _privateConstructorUsedError;
 }
