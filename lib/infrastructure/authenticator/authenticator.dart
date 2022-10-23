@@ -1,7 +1,7 @@
 //認証系の実装はインフラ層で（↓参考）
 //https://zenn.dev/dowanna6/articles/5c05ab671fb7ab
 
-import 'package:ddd_playground/util/providers/auth_instance_provider.dart';
+import 'package:ddd_playground/util/provider/auth_instance_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
