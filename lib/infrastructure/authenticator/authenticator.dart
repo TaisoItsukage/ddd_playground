@@ -1,7 +1,7 @@
 //認証系の実装はインフラ層で（↓参考）
 //https://zenn.dev/dowanna6/articles/5c05ab671fb7ab
 
-import 'package:ddd_playground/util/provider/auth_instance_provider.dart';
+import 'package:ddd_playground/util/provider/firebase_auth_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -19,11 +19,12 @@ class Authenticator {
     //todo サインイン失敗時のエラーハンドリング
     try {
       return await ref
-          .read(authInstanceProvider)
+          .read(firebaseAuthProvider)
           .signInWithEmailAndPassword(email: email, password: password);
       //エラーハンドリングの参考にしたサイト
       //https://firebase.google.com/docs/auth/flutter/password-auth
     } on FirebaseAuthException catch (e) {
+      print(e.code);
       //todo マジックワードを使わないようにする。
       switch (e.code) {
         case 'weak-password':
@@ -34,7 +35,10 @@ class Authenticator {
               'このアカウントは既に登録されています。サインインしてください。';
           break;
         case 'wrong-password':
-          ref.read(authErrorMessageProvider.notifier).state = 'パスワードが違います。';
+          ref.read(authErrorMessageProvider.notifier).state = 'パスワードが違いま。';
+          break;
+        case 'too-many-requests':
+          ref.read(authErrorMessageProvider.notifier).state = '繰り返し失敗しています';
           break;
         default:
           ref.read(authErrorMessageProvider.notifier).state = '予期せぬエラーが発生しました';
@@ -48,7 +52,7 @@ class Authenticator {
     //todo サインアップ失敗時のエラーハンドリング
     try {
       return await ref
-          .read(authInstanceProvider)
+          .read(firebaseAuthProvider)
           .createUserWithEmailAndPassword(email: email, password: password);
       //エラーハンドリングの参考にしたサイト
       //https://firebase.google.com/docs/auth/flutter/password-auth

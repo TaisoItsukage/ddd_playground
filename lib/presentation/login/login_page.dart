@@ -23,7 +23,7 @@ class LoginPage extends ConsumerWidget {
             onPressed: () {
               authenticator.signInWithEmail(
                 'taiso.itsukage@gmail.com',
-                '12345',
+                '123456',
               );
             },
           ),
