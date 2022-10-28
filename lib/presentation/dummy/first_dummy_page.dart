@@ -16,7 +16,7 @@ class FirstDummyPage extends ConsumerWidget {
             child: const Text('signOut'),
           ),
           ElevatedButton(
-            onPressed: () => context.go('/tab/0/next'),
+            onPressed: () => context.go('/a/next'),
             child: const Text('next'),
           ),
           const Text('1'),
