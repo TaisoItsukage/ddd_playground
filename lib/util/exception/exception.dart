@@ -1,5 +1,14 @@
 //参考
 //https://github.com/kaboc/flutter_ddd/blob/state_notifier/
+
+//各ドメインオブジェクトでassertを設定すれば、この文章は不要な気もする。
+//→catch onの指定をするときに詰む。
+//以下の例で言うと、「NullEmptyExceptionだけをcatchする」ができなくなり、例外を握りつぶしてしまう恐れがある
+//  try {
+//   throw (NullEmptyException());
+// } on NullEmptyException catch (e) {
+//   print(e.message);
+// }
 class GenericException implements Exception {
   GenericException({this.code = ExceptionCode.unknown, this.info});
   final ExceptionCode code;
@@ -32,13 +41,18 @@ class NotFoundException extends GenericException {
         super(info: target);
 }
 
+//意図が不明。
 class NotUniqueException extends GenericException {
   NotUniqueException({required super.code, required String value})
       : assert(value.isNotEmpty),
         super(info: value);
 }
 
-class NullEmptyException extends GenericException {}
+class NullEmptyException extends GenericException {
+  NullEmptyException({required super.code, required String value})
+      : assert(value.isNotEmpty),
+        super(info: value);
+}
 
 class LengthException extends GenericException {
   LengthException({super.code, required int max})
@@ -53,4 +67,5 @@ class RemovalException extends GenericException {
 //ドメインオブジェクト1つにつき、enum値を1つ用意するのがよさそう
 enum ExceptionCode {
   unknown,
+  userId,
 }
