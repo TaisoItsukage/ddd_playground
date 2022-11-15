@@ -25,49 +25,41 @@ class ItemList {
   ItemList(this._itemList);
   final List<Item> _itemList;
 
-  ItemList addItem(Item item) {
-    return ItemList([..._itemList, item]);
-  }
+  ItemList add(Item item) => ItemList([..._itemList, item]);
 
-  ItemList removeItem(String id) {
-    return ItemList([
-      for (final item in _itemList)
-        if (item.id != id) item,
-    ]);
-  }
+  ItemList remove(String id) => ItemList(
+        [
+          for (final item in _itemList)
+            if (item.id != id) item,
+        ],
+      );
+  ItemList changeName(String id, String newName) => ItemList(
+        [
+          for (final item in _itemList)
+            if (item.id == id) item.changeName(item, newName) else item,
+        ],
+      );
 
-  ItemList changeItemName(String id, String newName) {
-    return ItemList([
-      for (final item in _itemList)
-        if (item.id == id) item.changeName(item, newName) else item,
-    ]);
-  }
+  int length() => _itemList.length;
 
   //unmodifiableなListにして返却する。
-  List<Item> getItemList() {
-    return List<Item>.unmodifiable(_itemList);
-  }
+  List<Item> asList() => List<Item>.unmodifiable(_itemList);
 }
 
 //stateProviderでダメな理由は、stateProviderだとメソッドの定義ができないから。
-//List<エンティティ>の場合は、UIを再描画させるために以下のクラスを作成する。
+//list<entity>の場合は、UIを再描画させるために以下のクラスを作成する必要あり。
 class ItemListObjectNotifier extends StateNotifier<ItemList> {
   ItemListObjectNotifier() : super(ItemList([]));
 
-  ItemList addItem(Item item) {
-    return state = state.addItem(item);
-  }
+  ItemList addItem(Item item) => state = state.add(item);
 
-  ItemList removeItem(String id) {
-    return state = state.removeItem(id);
-  }
+  ItemList removeItem(String id) => state = state.remove(id);
 
-  ItemList changeItemName(String id, String newName) {
-    return state = state.changeItemName(id, newName);
-  }
+  ItemList changeItemName(String id, String newName) =>
+      state = state.changeName(id, newName);
 }
 
 final itemListObjectProvider =
-    StateNotifierProvider<ItemListObjectNotifier, ItemList>((ref) {
-  return ItemListObjectNotifier();
-});
+    StateNotifierProvider<ItemListObjectNotifier, ItemList>(
+  (ref) => ItemListObjectNotifier(),
+);

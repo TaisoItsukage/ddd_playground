@@ -9,7 +9,7 @@ class SecondDummyPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final itemListObject = ref.watch(itemListObjectProvider);
-    final itemList = itemListObject.getItemList();
+    final itemList = itemListObject.asList();
     return Column(
       children: [
         Expanded(
@@ -23,17 +23,17 @@ class SecondDummyPage extends ConsumerWidget {
                             itemList[index].id,
                             DateTime.now().toString(),
                           ),
-                  child: const Text('名前を変更する'),
+                  child: const Text('更新時刻'),
                 ),
               ],
             ),
-            itemCount: itemList.length,
+            itemCount: itemListObject.length(),
           ),
         ),
         ElevatedButton(
           onPressed: () => ref.read(itemListObjectProvider.notifier).addItem(
                 Item(
-                  itemList.length.toString(),
+                  itemListObject.length().toString(),
                   DateTime.now().toString(),
                 ),
               ),
