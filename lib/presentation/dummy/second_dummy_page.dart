@@ -33,8 +33,8 @@ class SecondDummyPage extends ConsumerWidget {
         ElevatedButton(
           onPressed: () => ref.read(itemListObjectProvider.notifier).addItem(
                 Item(
-                  itemListObject.length().toString(),
-                  DateTime.now().toString(),
+                  id: itemListObject.length().toString(),
+                  name: DateTime.now().toString(),
                 ),
               ),
           child: const Text('新規作成'),

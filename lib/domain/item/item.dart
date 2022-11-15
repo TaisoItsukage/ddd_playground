@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class Item extends Equatable {
-  const Item(this.id, this.name);
+  const Item({required this.id, required this.name});
   final String id;
   final String name;
 
@@ -10,11 +10,18 @@ class Item extends Equatable {
 
   //商品名は変更可能とする
   Item changeName(Item item, String newName) {
-    return Item(id, newName);
+    return copyWith(name: newName);
   }
 
   @override
   List<Object?> get props => [id, name];
+
+  Item copyWith({
+    String? id,
+    String? name,
+  }) {
+    return Item(id: id ?? this.id, name: name ?? this.name);
+  }
 }
 
 //Listは外部からaddや値の変更をされるとバグのもとになる。
