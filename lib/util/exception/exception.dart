@@ -65,7 +65,4 @@ class RemovalException extends GenericException {
 }
 
 //ドメインオブジェクト1つにつき、enum値を1つ用意するのがよさそう
-enum ExceptionCode {
-  unknown,
-  userId,
-}
+enum ExceptionCode { unknown, userId, address }
