@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/item/item.dart';
+import '../../domain/item/value/item_id.dart';
 
 class SecondDummyPage extends ConsumerWidget {
   const SecondDummyPage({super.key});
@@ -33,7 +34,7 @@ class SecondDummyPage extends ConsumerWidget {
         ElevatedButton(
           onPressed: () => ref.read(itemListObjectProvider.notifier).addItem(
                 Item(
-                  id: itemListObject.length().toString(),
+                  id: ItemId(itemId: itemListObject.length().toString()),
                   name: DateTime.now().toString(),
                 ),
               ),

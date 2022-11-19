@@ -1,9 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'value/item_id.dart';
+
 class Item extends Equatable {
   const Item({required this.id, required this.name});
-  final String id;
+  final ItemId id;
   final String name;
 
   //操作対象となるデータをもつクラスの中に、データ操作のメソッドを書く！
@@ -17,7 +19,7 @@ class Item extends Equatable {
   List<Object?> get props => [id, name];
 
   Item copyWith({
-    String? id,
+    ItemId? id,
     String? name,
   }) {
     return Item(id: id ?? this.id, name: name ?? this.name);
@@ -34,13 +36,13 @@ class ItemList {
 
   ItemList add(Item item) => ItemList([..._itemList, item]);
 
-  ItemList remove(String id) => ItemList(
+  ItemList remove(ItemId id) => ItemList(
         [
           for (final item in _itemList)
             if (item.id != id) item,
         ],
       );
-  ItemList changeName(String id, String newName) => ItemList(
+  ItemList changeName(ItemId id, String newName) => ItemList(
         [
           for (final item in _itemList)
             if (item.id == id) item.changeName(item, newName) else item,
@@ -60,9 +62,9 @@ class ItemListObjectNotifier extends StateNotifier<ItemList> {
 
   ItemList addItem(Item item) => state = state.add(item);
 
-  ItemList removeItem(String id) => state = state.remove(id);
+  ItemList removeItem(ItemId id) => state = state.remove(id);
 
-  ItemList changeItemName(String id, String newName) =>
+  ItemList changeItemName(ItemId id, String newName) =>
       state = state.changeName(id, newName);
 }
 
