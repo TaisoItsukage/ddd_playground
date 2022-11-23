@@ -1,13 +1,22 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'value/current_stock.dart';
+import 'value/future_stock.dart';
 import 'value/item_id.dart';
 
 class Item extends Equatable {
-  const Item({required this.id, required this.name});
+  const Item({
+    required this.id,
+    required this.name,
+    required this.currentStock,
+    required this.futureStock,
+  });
   final ItemId id;
   final String name;
-
+  final CurrentStock currentStock;
+  final FutureStock futureStock;
   //操作対象となるデータをもつクラスの中に、データ操作のメソッドを書く！
 
   //商品名は変更可能とする
@@ -16,13 +25,20 @@ class Item extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, name];
+  List<Object> get props => [id, name, currentStock, futureStock];
 
   Item copyWith({
     ItemId? id,
     String? name,
+    CurrentStock? currentStock,
+    FutureStock? futureStock,
   }) {
-    return Item(id: id ?? this.id, name: name ?? this.name);
+    return Item(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      currentStock: currentStock ?? this.currentStock,
+      futureStock: futureStock ?? this.futureStock,
+    );
   }
 }
 
