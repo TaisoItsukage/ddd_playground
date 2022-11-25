@@ -1,3 +1,4 @@
+import 'package:ddd_playground/domain/item/value/amount.dart';
 import 'package:ddd_playground/domain/item/value/current_stock.dart';
 import 'package:ddd_playground/domain/item/value/future_stock.dart';
 import 'package:flutter/material.dart';
@@ -37,9 +38,9 @@ class SecondDummyPage extends ConsumerWidget {
                 Item(
                   id: ItemId(itemId: itemListObject.length().toString()),
                   name: DateTime.now().toString(),
-                  currentStock: const CurrentStock(amount: 3),
+                  currentStock: const CurrentStock(amount: Amount(amount: 3)),
                   futureStock: FutureStock(
-                    amount: 3,
+                    amount: const Amount(amount: 3),
                     expectedDate: DateTime.now(),
                   ),
                 ),
