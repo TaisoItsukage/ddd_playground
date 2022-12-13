@@ -7,8 +7,8 @@ class FirstNextDummyPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(isSignedInProvider);
-    return user.when(
+    final isSignedInUser = ref.watch(isSignedInProvider);
+    return isSignedInUser.when(
       data: (data) => const Text('signedIn'),
       error: (error, stackTrace) => const Text('error'),
       loading: () => const CircularProgressIndicator.adaptive(),
